@@ -41,7 +41,7 @@ const SocialLinks = () => {
           Github <FaGithub size={30} />
         </>
       ),
-      href: "https://github.com/Jaramill0",
+      href: "https://github.com/PromiseYoung",
     },
   ];
   return (
