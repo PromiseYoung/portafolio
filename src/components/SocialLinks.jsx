@@ -1,26 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
 import { BsFillPersonLinesFill } from "react-icons/bs";
 
 const SocialLinks = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   const links = [
     {
       id: 1,
       child: (
         <>
-          Resumen <BsFillPersonLinesFill size={30} />
+          Resumen <BsFillPersonLinesFill size={28} />
         </>
       ),
-      href: "./CV JARAMILLO.pdf",
-      style: "rounded-br-md",
+      href: "./CV_JARAMILLO.pdf",
       download: true,
     },
     {
       id: 2,
       child: (
         <>
-          Outlook <HiOutlineMail size={30} />
+          Outlook <HiOutlineMail size={28} />
         </>
       ),
       href: "mailto:hugoenri1009@hotmail.com",
@@ -29,7 +30,7 @@ const SocialLinks = () => {
       id: 3,
       child: (
         <>
-          LinkedIn <FaLinkedin size={30} />
+          LinkedIn <FaLinkedin size={28} />
         </>
       ),
       href: "https://www.linkedin.com/in/inghugojaramillo/",
@@ -38,23 +39,33 @@ const SocialLinks = () => {
       id: 4,
       child: (
         <>
-          Github <FaGithub size={30} />
+          Github <FaGithub size={28} />
         </>
       ),
-      href: "https://github.com/Jaramill0",
+      href: "https://github.com/PromiseYoung",
     },
   ];
+
   return (
-    <div className="hidden lg:flex flex-col top-[35%] left-0 fixed">
-      <ul>
+    <div className="fixed top-[35%] left-0 z-50">
+      {/* Botón para abrir/cerrar en móvil */}
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="lg:hidden bg-cyan-500 text-white p-2 rounded-r-md text-lg"
+      >
+        {isOpen ? "✖" : "☰"}
+      </button>
+
+      {/* Menú Social */}
+      <ul className={`lg:flex flex-col transition-all duration-300 ${isOpen ? "block" : "hidden"}`}>
         {links.map(({ id, child, href, download }) => (
           <li
             key={id}
-            className="flex justify-between items-center w-40 h-14 px-4 ml-[-100px] hover:ml-[-10px] hover:rounded-md duration-300 bg-gray-600"
+            className="flex justify-between items-center w-48 h-14 px-4 ml-[-120px] hover:ml-0 transition-all duration-300 bg-gray-800 hover:bg-cyan-600 rounded-r-lg"
           >
             <a
               href={href}
-              className="flex justify-between items-center w-full text-white"
+              className="flex justify-between items-center w-full text-white text-lg font-medium"
               target="_blank"
               rel="noreferrer"
               download={download}

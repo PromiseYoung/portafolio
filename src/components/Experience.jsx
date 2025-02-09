@@ -23,32 +23,35 @@ function Experience() {
   ];
 
   return (
-    <div
+    <section
       name="experiencia"
-      className="bg-gradient-to-b from-gray-800 via-black to-black min-h-screen py-12"
+      className="bg-gradient-to-b from-gray-900 via-black to-black min-h-screen py-16 text-white"
     >
-      <div className="flex flex-col justify-center max-w-screen-lg mx-auto w-full text-white">
+      <div className="max-w-6xl mx-auto px-6">
+        {/* Título */}
         <div className="text-center mb-12">
-          <p className="text-4xl font-bold border-b-4 border-gray-500 inline-block pb-2">
+          <h2 className="text-4xl font-extrabold border-b-4 border-cyan-500 inline-block pb-2">
             Experiencia
-          </p>
-          <p className="py-6 text-lg">
-            Tecnologías con las que he trabajado
+          </h2>
+          <p className="text-gray-400 mt-3 text-lg">
+            Tecnologías con las que he trabajado.
           </p>
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8">
+
+        {/* Grid de Tecnologías */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8">
           {tecnologias.map(({ id, src, title, style }) => (
             <div
               key={id}
-              className={`shadow-lg rounded-lg p-4 transition-transform transform hover:scale-105 ${style}`}
+              className={`bg-gray-900 bg-opacity-80 shadow-lg rounded-xl p-6 text-center backdrop-blur-md transition-transform transform hover:scale-110 hover:shadow-2xl ${style}`}
             >
               <img src={src} alt={title} className="w-24 mx-auto mb-4" />
-              <p className="text-center text-lg font-medium">{title}</p>
+              <p className="text-xl font-semibold">{title}</p>
             </div>
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 
