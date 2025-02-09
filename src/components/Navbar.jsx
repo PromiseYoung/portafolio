@@ -2,80 +2,87 @@ import React, { useState, useEffect } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { Link } from "react-scroll";
 
+const links = [
+  { id: 1, title: "Home", target: "home" },
+  { id: 2, title: "Acerca", target: "acerca" },
+  { id: 3, title: "Portafolio", target: "portafolio" },
+  { id: 4, title: "Experiencia", target: "experiencia" },
+  { id: 5, title: "Contacto", target: "contacto" },
+];
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  const links = [
-    { id: 1, title: "Home", target: "home" },
-    { id: 2, title: "Acerca", target: "acerca" },
-    { id: 3, title: "Portafolio", target: "portafolio" },
-    { id: 4, title: "Experiencia", target: "experiencia" },
-    { id: 5, title: "Contacto", target: "contacto" },
-  ];
-
-  // Detectar si se ha hecho scroll para cambiar el estilo del navbar
+  // Detectar el scroll para cambiar el fondo del navbar
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Cerrar el menú cuando se hace clic fuera
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (!event.target.closest(".navbar")) setIsOpen(false);
+    };
+
+    if (isOpen) document.addEventListener("click", handleClickOutside);
+    return () => document.removeEventListener("click", handleClickOutside);
+  }, [isOpen]);
+
   return (
     <nav
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-black shadow-lg" : "bg-transparent"
-      }`}
+      className={`navbar fixed w-full z-50 transition-all duration-300 ${scrolled
+          ? "bg-black bg-opacity-90 shadow-lg border-b border-gray-700"
+          : "bg-transparent"
+        }`}
     >
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="max-w-7xl mx-auto px-6">
         <div className="flex justify-between items-center h-16">
-          <h1
-            className={`text-4xl font-signature text-white transition-transform duration-300 ${
-              isOpen ? "transform translate-x-0" : "transform translate-x-0"
-            } md:translate-x-0`}
-          >
-            Jaramillo
-          </h1>
+          {/* Logo */}
+          <h1 className="text-3xl font-bold text-white">Ing. Jaramillo</h1>
 
-          {/* Botón del menú en móvil */}
-          <div className="flex md:hidden">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              type="button"
-              aria-expanded={isOpen ? "true" : "false"}
-              aria-label="Toggle menu"
-              className="inline-flex items-center justify-center p-2 rounded-md text-white hover:text-gray-200 hover:bg-gray-700 focus:outline-none transition duration-300 ease-in-out"
-            >
-              {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
-            </button>
-          </div>
-
-          {/* Enlaces para pantallas medianas y grandes */}
-          <ul className="hidden md:flex md:items-center">
+          {/* Menú en escritorio */}
+          <ul className="hidden md:flex">
             {links.map(({ id, title, target }) => (
-              <li key={id} className="mx-3">
+              <li key={id} className="mx-4 my-2">
                 <Link
                   to={target}
                   spy={true}
                   smooth={true}
                   offset={-70}
                   duration={500}
-                  className="text-gray-400 hover:text-white font-medium tracking-wide uppercase text-sm cursor-pointer transition-colors duration-300"
+                  className="text-gray-300 hover:text-white font-medium tracking-wide uppercase text-base cursor-pointer transition-colors duration-300"
                 >
                   {title}
                 </Link>
               </li>
             ))}
           </ul>
+
+          {/* Botón del menú móvil */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            type="button"
+            aria-expanded={isOpen}
+            aria-controls="mobile-menu"
+            aria-label="Toggle menu"
+            className="md:hidden p-2 rounded-md text-white hover:text-gray-200 hover:bg-gray-700 focus:outline-none transition duration-300"
+          >
+            {isOpen ? <FaTimes size={28} /> : <FaBars size={28} />}
+          </button>
         </div>
       </div>
 
-      {/* Menú desplegable para pantallas móviles */}
-      {isOpen && (
-        <div className="md:hidden absolute inset-x-0 top-16 bg-black shadow-lg transition-all duration-300">
-          <ul className="pt-2 pb-3 space-y-1">
+      {/* Menú lateral en móvil */}
+      <div
+        id="mobile-menu"
+        className={`fixed top-0 right-0 h-full w-64 bg-black bg-opacity-90 shadow-xl transform transition-transform duration-300 ${isOpen ? "translate-x-0" : "translate-x-full"
+          } md:hidden`}
+      >
+        <div className="flex flex-col items-center justify-center h-full">
+          <ul className="text-center space-y-6">
             {links.map(({ id, title, target }) => (
               <li key={id}>
                 <Link
@@ -84,8 +91,8 @@ const Navbar = () => {
                   smooth={true}
                   offset={-70}
                   duration={500}
-                  onClick={() => setIsOpen(false)} // Cerrar el menú cuando se hace clic
-                  className="block pl-3 pr-4 py-2 border-l-4 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white cursor-pointer transition-colors duration-300"
+                  onClick={() => setIsOpen(false)} // Cierra el menú al hacer clic
+                  className="text-gray-300 hover:text-white font-medium tracking-wide uppercase text-lg cursor-pointer transition-colors duration-300"
                 >
                   {title}
                 </Link>
@@ -93,7 +100,7 @@ const Navbar = () => {
             ))}
           </ul>
         </div>
-      )}
+      </div>
     </nav>
   );
 };
