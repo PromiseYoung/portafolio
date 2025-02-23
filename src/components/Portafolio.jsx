@@ -11,7 +11,7 @@ const Portafolio = () => {
     { id: 1, src: bot, title: "BotGame", demo: "#", code: "#" },
     { id: 2, src: node, title: "App Votes", demo: "#", code: "#" },
     { id: 3, src: snake, title: "SnakeGame", demo: "#", code: "#" },
-    { id: 4, src: rickymorty, title: "Web Api Rick & Morty", demo: "#", code: "#" },
+    { id: 4, src: rickymorty, title: "Web Api Rick & Morty", demo: "https://rick-morty-api-opal-rho.vercel.app/", code: "#" },
     { id: 5, src: weather, title: "API Rest Weather", demo: "#", code: "#" },
     { id: 6, src: car, title: "E-Commerce Movies", demo: "#", code: "#" },
   ];
