@@ -14,8 +14,8 @@ const SocialLinks = () => {
           Resumen <BsFillPersonLinesFill size={28} />
         </>
       ),
-      href: "/build/CV JARAMILLO.pdf",
-      download: true,
+      href: "/build/CV_JARAMILLO.pdf",
+      download: "CV_JARAMILLO.pdf", // Nombre del archivo PDF al descargar
     },
     {
       id: 2,
@@ -52,12 +52,16 @@ const SocialLinks = () => {
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="lg:hidden bg-cyan-500 text-white p-2 rounded-r-md text-lg"
+        aria-label="Toggle social links"
       >
         {isOpen ? "✖" : "☰"}
       </button>
 
       {/* Menú Social */}
-      <ul className={`lg:flex flex-col transition-all duration-300 ${isOpen ? "block" : "hidden"}`}>
+      <ul
+        className={`lg:flex flex-col transition-all duration-300 ${isOpen ? "block" : "hidden"
+          }`}
+      >
         {links.map(({ id, child, href, download }) => (
           <li
             key={id}
@@ -68,7 +72,7 @@ const SocialLinks = () => {
               className="flex justify-between items-center w-full text-white text-lg font-medium"
               target="_blank"
               rel="noreferrer"
-              download={download}
+              download={download} // Añadido para descarga directa de PDF
             >
               {child}
             </a>
