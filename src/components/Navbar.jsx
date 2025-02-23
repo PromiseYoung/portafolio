@@ -21,16 +21,6 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Cerrar el menú cuando se hace clic fuera
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (!event.target.closest(".navbar")) setIsOpen(false);
-    };
-
-    if (isOpen) document.addEventListener("click", handleClickOutside);
-    return () => document.removeEventListener("click", handleClickOutside);
-  }, [isOpen]);
-
   return (
     <nav
       className={`navbar fixed w-full z-50 transition-all duration-300 ${scrolled
@@ -68,7 +58,7 @@ const Navbar = () => {
             aria-expanded={isOpen}
             aria-controls="mobile-menu"
             aria-label="Toggle menu"
-            className="md:hidden p-2 rounded-md text-white hover:text-gray-200 hover:bg-gray-700 focus:outline-none transition duration-300"
+            className="md:hidden p-2 rounded-md text-white hover:text-gray-200 hover:bg-gray-800 focus:outline-none transition duration-300"
           >
             {isOpen ? <FaTimes size={28} /> : <FaBars size={28} />}
           </button>
@@ -78,21 +68,21 @@ const Navbar = () => {
       {/* Menú lateral en móvil */}
       <div
         id="mobile-menu"
-        className={`fixed top-0 right-0 h-full w-64 bg-black bg-opacity-90 shadow-xl transform transition-transform duration-300 ${isOpen ? "translate-x-0" : "translate-x-full"
-          } md:hidden`}
+        className={`fixed top-0 right-0 h-full w-64 bg-gray-900 shadow-xl transform transition-transform duration-500 ${isOpen ? "translate-x-0" : "translate-x-full"
+          } md:hidden z-40`}
       >
-        <div className="flex flex-col items-center justify-center h-full">
-          <ul className="text-center space-y-6">
+        <div className="flex flex-col items-center justify-center h-full space-y-8">
+          <ul className="text-center">
             {links.map(({ id, title, target }) => (
-              <li key={id}>
+              <li key={id} className="my-4">
                 <Link
                   to={target}
                   spy={true}
                   smooth={true}
                   offset={-70}
                   duration={500}
-                  onClick={() => setIsOpen(false)} // Cierra el menú al hacer clic
-                  className="text-gray-300 hover:text-white font-medium tracking-wide uppercase text-lg cursor-pointer transition-colors duration-300"
+                  onClick={() => setIsOpen(false)}
+                  className="text-gray-300 hover:text-white font-semibold tracking-wider uppercase text-lg transition-colors duration-300"
                 >
                   {title}
                 </Link>
