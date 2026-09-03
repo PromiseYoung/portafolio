@@ -28,12 +28,13 @@ const Home = () => {
             También he participado en <span className="text-cyan-400">implementaciones tecnológicas</span> para <span className="text-cyan-400">grandes empresas</span> en el <span className="text-cyan-400">SAT</span>, adquiriendo experiencia en <span className="text-cyan-400">soporte TI</span>.
           </p>
           <p className="text-gray-400 py-2 max-w-md leading-relaxed">
-            Actualmente, me especializo en el <span className="text-cyan-400">desarrollo web</span>, utilizando tecnologías modernas como:
+            Actualmente, me especializo en el <span className="text-cyan-400">desarrollo web</span> y <span className="text-cyan-400">Desarrollo de Aplicaciones Programación de Interfaces APIs</span>, utilizando tecnologías modernas como:
           </p>
           <ul className="text-gray-400 list-disc list-inside pl-4">
             <li><span className="text-cyan-400">React</span> y <span className="text-cyan-400">Next.js</span> para experiencias interactivas.</li>
             <li><span className="text-cyan-400">Angular</span> para arquitecturas escalables.</li>
             <li><span className="text-cyan-400">Tailwind CSS</span> para diseños elegantes.</li>
+            <li><span className="text-cyan-400">Axios</span> para la comunicacion de Apis customizadas en consumo con APIs de Sitios Web Oficiales como DHL, Weather Cloud, UPS.</li>
             <li><span className="text-cyan-400">Laravel</span> para soluciones robustas y seguras en las versiones actuales de la libreria.</li>
           </ul>
           <p className="text-gray-400 py-4 max-w-md leading-relaxed">
