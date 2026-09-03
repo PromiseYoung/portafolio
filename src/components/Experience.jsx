@@ -21,7 +21,7 @@ function Experience() {
     { id: 7, src: netcore, title: ".NET CORE", style: "shadow-fuchsia-600" },
     { id: 8, src: tailwind, title: "TailwindCSS", style: "shadow-sky-400" },
     { id: 9, src: php, title: "PHP", style: "shadow-violet-700" },
-    { id: 10, src: node, title: "NodeJS", style: "shadow-green-700" },
+    { id: 10, src: node, title: "Node JS", style: "shadow-green-700" },
   ];
 
   return (
