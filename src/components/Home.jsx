@@ -25,7 +25,7 @@ const Home = () => {
             Con <span className="text-cyan-400 font-semibold">3 años de experiencia</span> en el desarrollo de <span className="text-cyan-400">sistemas web</span>, <span className="text-cyan-400">plataformas de escritorio</span> y <span className="text-cyan-400">bots</span> para diversas aplicaciones.
           </p>
           <p className="text-gray-400 py-2 max-w-md leading-relaxed">
-            También he participado en <span className="text-cyan-400">implementaciones tecnológicas</span> para <span className="text-cyan-400">grandes empresas</span> en el <span className="text-cyan-400">SAT</span>, adquiriendo experiencia en <span className="text-cyan-400">soporte TI</span>.
+            También he participado en <span className="text-cyan-400">implementaciones tecnológicas</span> para <span className="text-cyan-400">grandes empresas</span> en el <span className="text-cyan-400">SAT</span>, adquiriendo experiencia en <span className="text-cyan-400">Soporte TI</span>.
           </p>
           <p className="text-gray-400 py-2 max-w-md leading-relaxed">
             Actualmente, me especializo en el <span className="text-cyan-400">desarrollo web</span> y <span className="text-cyan-400">Desarrollo de Aplicaciones Programación de Interfaces APIs</span>, utilizando tecnologías modernas como:
