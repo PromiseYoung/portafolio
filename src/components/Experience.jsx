@@ -8,6 +8,7 @@ import html from "../assets/portafolio/html.png";
 import netcore from "../assets/portafolio/netcore.png";
 import php from "../assets/portafolio/php.png";
 import tailwind from "../assets/portafolio/tailwind.png";
+import node from "../assets/portafolio/node.png"
 
 function Experience() {
   const tecnologias = [
@@ -20,6 +21,7 @@ function Experience() {
     { id: 7, src: netcore, title: ".NET CORE", style: "shadow-fuchsia-600" },
     { id: 8, src: tailwind, title: "TailwindCSS", style: "shadow-sky-400" },
     { id: 9, src: php, title: "PHP", style: "shadow-violet-700" },
+    { id: 10, src: node, title: "NodeJS", style: "shadow-green-700" },
   ];
 
   return (
