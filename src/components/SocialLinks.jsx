@@ -14,8 +14,8 @@ const SocialLinks = () => {
           Resumen <BsFillPersonLinesFill size={28} />
         </>
       ),
-      href: "/CV JARAMILLO.pdf",
-      download: "CV JARAMILLO.pdf", // Nombre del archivo PDF al descargar
+      href: "/DevYoung.pdf",
+      download: "DevYoung.pdf", // Nombre del archivo PDF al descargar
     },
     {
       id: 2,
